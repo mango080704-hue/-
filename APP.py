@@ -122,7 +122,7 @@ if st.button("📨 交卷"):
             
             for key, text in q["options"].items():
                 if key == q["answer"]:
-                    st.write(f"✅ {key}. {text}")  # 正確答案標記
+                    st.write(f"{key}. {text} ✅")  # 正確答案標記
                 else:
                     st.write(f"{key}. {text}")
             
