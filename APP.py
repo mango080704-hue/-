@@ -108,5 +108,22 @@ if st.button("📨 交卷"):
         st.error("錯題回顧：")
         for q, a in wrong:
             st.write("題目：", q["question"])
-            st.write("你的答案：", a, "｜正確答案：", q["answer"])
+            st.write(
+                "你的答案：", f"{a}. {q['options'][a]}",
+                "｜正確答案：", f"{q['answer']}. {q['options'][q['answer']]}"
+            )
             st.write("---")
+            
+    st.markdown("---")
+
+    with st.expander("📚 顯示題庫與答案"):
+        for i, q in enumerate(QUESTION_BANK, 1):
+            st.write(f"{i}. [{q['category']}] {q['question']}")
+            
+            for key, text in q["options"].items():
+                if key == q["answer"]:
+                    st.write(f"✅ {key}. {text}")  # 正確答案標記
+                else:
+                    st.write(f"{key}. {text}")
+            
+            st.write("")
